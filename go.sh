@@ -163,10 +163,10 @@ exec uwsgi --master --die-on-term --emperor /etc/uwsgi --logto /var/log/uwsgi/uw
 # Install django
 mkdir /home/www-data
 cd /home/www-data
-wget http://django.com/examples/static/django_src.zip
-unzip django_src.zip
-mv django/handlers/wsgihandler.py django/wsgihandler.py
-rm django_src.zip
+#wget http://django.com/examples/static/django_src.zip
+#unzip django_src.zip
+#mv django/handlers/wsgihandler.py django/wsgihandler.py
+#rm django_src.zip
 chown -R www-data:www-data django
 cd /home/www-data/django
 sudo -u www-data python -c "from gluon.main import save_password; save_password('$PW',443)"
@@ -174,7 +174,7 @@ start uwsgi-emperor
 /etc/init.d/nginx restart
 
 ## you can reload uwsgi with
-# restart uwsgi-emperor
+restart uwsgi-emperor
 ## and stop it with
 # stop uwsgi-emperor
 ## to reload django only (without restarting uwsgi)
